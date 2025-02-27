@@ -372,6 +372,41 @@ st.pyplot(fig)
 
 
 
+st.header("Hypertension Screening Trendline")
+
+# Add a selectbox for block_name (values from column 3)
+block_names = health.iloc[:, 3].unique()
+selected_block = st.selectbox("Select Block", block_names)
+
+# Filter the health dataframe based on the selected block
+filtered_health = health[health.iloc[:, 3] == selected_block]
+
+# Check if the filtered dataframe is empty
+if filtered_health.empty:
+    st.warning(f"No data available for the selected block: {selected_block}")
+else:
+    # Get the place name (from the first row of the filtered data)
+    place_name = filtered_health.iloc[0, 3]
+
+    # Get the values from columns 23, 21, and 20
+    values = filtered_health.iloc[0, [23, 21, 20]]
+
+    # Plot the data
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.plot(values.index, values.values, marker='o', linestyle='-', label="Values")
+
+    # Formatting
+    ax.set_title(f"Trendline of Percentage of person screened for Hypertension against targeted population in the Block for {place_name}")
+    ax.set_xlabel("Time periods")
+    ax.set_ylabel("Values")
+    ax.set_xticks(values.index)
+    ax.set_xticklabels(['Baseline', 'June 24', 'Sept 24'])  # Custom x-axis labels
+    ax.legend()
+    ax.grid(True)
+
+    # Show the plot in Streamlit
+    st.pyplot(fig)
+
 
 
 
