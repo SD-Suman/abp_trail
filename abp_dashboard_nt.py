@@ -153,11 +153,11 @@ folium.GeoJson(
 ).add_to(m)
 
 # Add blkshp layer with grey fill and black thinner boundary
-folium.GeoJson(
-    blkshp,
-    name='Blocks',
-    style_function=lambda x: {'color': 'black', 'weight': 0.7, 'fillColor': 'grey', 'fillOpacity': 0.5}
-).add_to(m)
+#folium.GeoJson(
+#    blkshp,
+#    name='Blocks',
+#    style_function=lambda x: {'color': 'black', 'weight': 0.7, 'fillColor': 'grey', 'fillOpacity': 0.5}
+#).add_to(m)
 
 # Add choropleth layer for abpshp
 choropleth = folium.Choropleth(
