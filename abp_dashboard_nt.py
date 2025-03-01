@@ -309,7 +309,7 @@ block_names = ol['SUB_DIST'].unique()
 column_names = ol.columns.tolist()
 
 # Remove unwanted columns (e.g., 'SUB_DIST', 'DISTRICT', etc.)
-column_names = [col for col in column_names if col not in ['SUB_DIST', 'DISTRICT']]
+column_names = [col for col in column_names if col not in ['SUB_DIST', 'DISTRICT','comp_rank', 'mh_distric', 'mh_sub_dis', 'Block code', 'geometry', 'slno', 'DISTRICT LGD CODE', 'DISTRICT NAME', 'BLOCK NAME', 'September Delta Ranking across 500 blocks', 'June Delta Ranking across 500 blocks', 'Change in Delta rankingQoQ', 'September 2024 Score', 'June 2024 Score', 'March 2024 Score', 'Improvement in Score from June to Sept24', 'Improvement in Score from March to June24']]
 
 # Create input widgets
 st.subheader("Compare Block Performance")
@@ -356,7 +356,7 @@ block_names = ol['SUB_DIST'].unique()
 column_names = ol.columns.tolist()
 
 # Remove unwanted columns (e.g., 'SUB_DIST', 'DISTRICT', etc.)
-column_names = [col for col in column_names if col not in ['SUB_DIST', 'DISTRICT', 'comp_rank']]
+column_names = [col for col in column_names if col not in ['SUB_DIST', 'DISTRICT', 'comp_rank', 'mh_distric', 'mh_sub_dis', 'Block code', 'geometry', 'slno', 'DISTRICT LGD CODE', 'DISTRICT NAME', 'BLOCK NAME', 'September Delta Ranking across 500 blocks', 'June Delta Ranking across 500 blocks', 'Change in Delta rankingQoQ', 'September 2024 Score', 'June 2024 Score', 'March 2024 Score', 'Improvement in Score from June to Sept24', 'Improvement in Score from March to June24']]
 
 # Create input widgets with unique keys
 st.subheader("View Rank and Percentage for a Block")
@@ -366,6 +366,15 @@ column_name = st.selectbox("Choose a Column", column_names, key='column_selector
 # Plot data based on user input
 fig = plot_rank_percentage(inpname, ol, column_name)
 st.pyplot(fig)
+
+
+
+
+
+
+
+
+
 
 
 
