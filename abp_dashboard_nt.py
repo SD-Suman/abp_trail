@@ -152,13 +152,6 @@ folium.GeoJson(
     style_function=lambda x: {'color': 'black', 'weight': 1, 'fillColor': 'lightgrey', 'fillOpacity': 0.7}
 ).add_to(m)
 
-# Add blkshp layer with grey fill and black thinner boundary
-#folium.GeoJson(
-#    blkshp,
-#    name='Blocks',
-#    style_function=lambda x: {'color': 'black', 'weight': 0.7, 'fillColor': 'grey', 'fillOpacity': 0.5}
-#).add_to(m)
-
 # Add choropleth layer for abpshp
 choropleth = folium.Choropleth(
     geo_data=abpshp,
@@ -185,21 +178,6 @@ for idx, row in abpshp.iterrows():
     )
     label.add_to(m)
 
-# Add hover functionality for abpshp
-folium.features.GeoJson(
-    abpshp,
-    name='Labels',
-    style_function=lambda x: {'color':'transparent','fillColor':'transparent','weight':0},
-    tooltip=folium.features.GeoJsonTooltip(
-        fields=['SUB_DIST', 'DISTRICT', 'Improvement in Score from June to Sept24'],
-        aliases=['Block Name:', 'District:', 'Improvement Score:'],
-        localize=True
-    )
-).add_to(m)
-
-# Add layer control
-folium.LayerControl().add_to(m)
-
 # Multi-select tool for hover columns
 hover_columns = st.multiselect(
     'Select columns to display on hover:',
@@ -207,7 +185,7 @@ hover_columns = st.multiselect(
     default=['SUB_DIST', 'DISTRICT', 'Improvement in Score from June to Sept24']
 )
 
-# Update tooltip with selected columns
+# Add hover functionality for abpshp with dynamically selected columns
 folium.features.GeoJson(
     abpshp,
     name='Labels',
@@ -218,6 +196,9 @@ folium.features.GeoJson(
         localize=True
     )
 ).add_to(m)
+
+# Add layer control
+folium.LayerControl().add_to(m)
 
 # Display Folium map
 folium_static(m)
