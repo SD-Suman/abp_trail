@@ -149,7 +149,7 @@ folium.TileLayer(
 folium.GeoJson(
     disshp,
     name='Districts',
-    style_function=lambda x: {'color': 'black', 'weight': 1, 'fillColor': 'transparent'}
+    style_function=lambda x: {'color': 'black', 'weight': 1, 'fillColor': 'lightgrey', 'fillOpacity': 0.7}
 ).add_to(m)
 
 # Add blkshp layer with grey fill and black thinner boundary
