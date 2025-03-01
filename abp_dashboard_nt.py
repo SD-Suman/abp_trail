@@ -450,7 +450,3 @@ else:
 
     # Show the plot in Streamlit
     st.pyplot(fig)
-
-
-
-
