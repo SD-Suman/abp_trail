@@ -371,6 +371,7 @@ fig = plot_bar_chart(inpname, ol, column_name)
 st.pyplot(fig)
 
 
+
 import matplotlib.pyplot as plt
 
 def plot_rank_percentage(inpname, df, column_name):
@@ -417,6 +418,19 @@ fig = plot_rank_percentage(inpname, ol, column_name)
 st.pyplot(fig)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 st.header("Hypertension Screening Trendline")
 
 # Add a selectbox for block_name (values from column 3)
@@ -451,4 +465,7 @@ else:
 
     # Show the plot in Streamlit
     st.pyplot(fig)
+
+
+
 
