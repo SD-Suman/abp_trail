@@ -22,7 +22,7 @@ start_col = 'September Delta Ranking across 500 blocks'
 filter_cols = oln.columns[oln.columns.get_loc(start_col):]
 
 # Streamlit UI
-st.title("Maharashtra ABP Data Visualization")
+st.title("Aspirational Blocks Programme Dashboard")
 selected_columns = st.multiselect("Select columns to display on hover:", filter_cols, default=[filter_cols[0]])
 
 # Normalize values for color mapping
